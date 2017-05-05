@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/grzegorz/Projekty/Matrices/Matrices/main.cpp
+iostream
+-
+vector
+-
+matrix.hpp
+/home/grzegorz/Projekty/Matrices/Matrices/matrix.hpp
+
+/home/grzegorz/Projekty/Matrices/Matrices/matrix.cpp
+matrix.hpp
+/home/grzegorz/Projekty/Matrices/Matrices/matrix.hpp
+
+/home/grzegorz/Projekty/Matrices/Matrices/matrix.hpp
+vector
+-
+
