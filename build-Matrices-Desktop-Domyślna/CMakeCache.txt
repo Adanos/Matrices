@@ -14,6 +14,12 @@
 # EXTERNAL cache entries
 ########################
 
+//Value Computed by CMake
+AlgorithmMultiplication_BINARY_DIR:STATIC=/home/grzegorz/Projekty/Matrices/build-Matrices-Desktop-Domyślna/AlgorithmMultiplication
+
+//Value Computed by CMake
+AlgorithmMultiplication_SOURCE_DIR:STATIC=/home/grzegorz/Projekty/Matrices/Matrices/AlgorithmMultiplication
+
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
@@ -173,6 +179,12 @@ Matrices_BINARY_DIR:STATIC=/home/grzegorz/Projekty/Matrices/build-Matrices-Deskt
 
 //Value Computed by CMake
 Matrices_SOURCE_DIR:STATIC=/home/grzegorz/Projekty/Matrices/Matrices
+
+//Dependencies for target
+SHARED_LIB_DEPENDS:STATIC=
+
+//Dependencies for target
+myModuleLib_LIB_DEPENDS:STATIC=
 
 
 ########################

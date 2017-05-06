@@ -123,6 +123,33 @@ Matrices/fast:
 	$(MAKE) -f CMakeFiles/Matrices.dir/build.make CMakeFiles/Matrices.dir/build
 .PHONY : Matrices/fast
 
+AlgorithmMultiplication/StrassenAlgorithm.o: AlgorithmMultiplication/StrassenAlgorithm.cpp.o
+
+.PHONY : AlgorithmMultiplication/StrassenAlgorithm.o
+
+# target to build an object file
+AlgorithmMultiplication/StrassenAlgorithm.cpp.o:
+	$(MAKE) -f CMakeFiles/Matrices.dir/build.make CMakeFiles/Matrices.dir/AlgorithmMultiplication/StrassenAlgorithm.cpp.o
+.PHONY : AlgorithmMultiplication/StrassenAlgorithm.cpp.o
+
+AlgorithmMultiplication/StrassenAlgorithm.i: AlgorithmMultiplication/StrassenAlgorithm.cpp.i
+
+.PHONY : AlgorithmMultiplication/StrassenAlgorithm.i
+
+# target to preprocess a source file
+AlgorithmMultiplication/StrassenAlgorithm.cpp.i:
+	$(MAKE) -f CMakeFiles/Matrices.dir/build.make CMakeFiles/Matrices.dir/AlgorithmMultiplication/StrassenAlgorithm.cpp.i
+.PHONY : AlgorithmMultiplication/StrassenAlgorithm.cpp.i
+
+AlgorithmMultiplication/StrassenAlgorithm.s: AlgorithmMultiplication/StrassenAlgorithm.cpp.s
+
+.PHONY : AlgorithmMultiplication/StrassenAlgorithm.s
+
+# target to generate assembly for a file
+AlgorithmMultiplication/StrassenAlgorithm.cpp.s:
+	$(MAKE) -f CMakeFiles/Matrices.dir/build.make CMakeFiles/Matrices.dir/AlgorithmMultiplication/StrassenAlgorithm.cpp.s
+.PHONY : AlgorithmMultiplication/StrassenAlgorithm.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Matrices"
+	@echo "... AlgorithmMultiplication/StrassenAlgorithm.o"
+	@echo "... AlgorithmMultiplication/StrassenAlgorithm.i"
+	@echo "... AlgorithmMultiplication/StrassenAlgorithm.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

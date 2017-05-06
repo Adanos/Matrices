@@ -18,20 +18,6 @@ StrassenAlgorithm.hpp
 IAlgorithmMultiplication.hpp
 /home/grzegorz/Projekty/Matrices/Matrices/AlgorithmMultiplication/IAlgorithmMultiplication.hpp
 
-/home/grzegorz/Projekty/Matrices/Matrices/main.cpp
-iostream
--
-vector
--
-matrix.hpp
-/home/grzegorz/Projekty/Matrices/Matrices/matrix.hpp
-StrassenAlgorithm.hpp
--
-
-/home/grzegorz/Projekty/Matrices/Matrices/matrix.cpp
-matrix.hpp
-/home/grzegorz/Projekty/Matrices/Matrices/matrix.hpp
-
 /home/grzegorz/Projekty/Matrices/Matrices/matrix.hpp
 vector
 -

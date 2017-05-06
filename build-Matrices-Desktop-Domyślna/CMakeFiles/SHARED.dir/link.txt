@@ -1,0 +1,2 @@
+/usr/bin/ar qc libSHARED.a  CMakeFiles/SHARED.dir/AlgorithmMultiplication/StrassenAlgorithm.cpp.o
+/usr/bin/ranlib libSHARED.a

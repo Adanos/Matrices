@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC   -shared -Wl,-soname,libmyModuleLib.so -o libmyModuleLib.so CMakeFiles/myModuleLib.dir/AlgorithmMultiplication/test.cpp.o CMakeFiles/myModuleLib.dir/AlgorithmMultiplication/StrassenAlgorithm.cpp.o 

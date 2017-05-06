@@ -50,6 +50,10 @@ const Matrix Matrix::operator-(const Matrix& p_matrix) const
 
 const Matrix Matrix::operator*(const Matrix& p_matrix) const
 {
+   if (this->columnDimension != p_matrix.rowDimension)
+   {
+       return Matrix();
+   }
    Matrix result = *this;
 
    return result;

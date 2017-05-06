@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/grzegorz/Projekty/Matrices/Matrices/AlgorithmMultiplication/StrassenAlgorithm.cpp" "/home/grzegorz/Projekty/Matrices/build-Matrices-Desktop-Domyślna/CMakeFiles/Matrices.dir/AlgorithmMultiplication/StrassenAlgorithm.cpp.o"
   "/home/grzegorz/Projekty/Matrices/Matrices/main.cpp" "/home/grzegorz/Projekty/Matrices/build-Matrices-Desktop-Domyślna/CMakeFiles/Matrices.dir/main.cpp.o"
   "/home/grzegorz/Projekty/Matrices/Matrices/matrix.cpp" "/home/grzegorz/Projekty/Matrices/build-Matrices-Desktop-Domyślna/CMakeFiles/Matrices.dir/matrix.cpp.o"
   )
@@ -11,6 +12,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/home/grzegorz/Projekty/Matrices/Matrices/AlgorithmMultiplication"
   )
 
 # Targets to which this target links.
