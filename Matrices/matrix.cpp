@@ -5,6 +5,12 @@ Matrix::Matrix(int p_rowDimension, int p_columnDimension) :rowDimension(p_rowDim
    elements.resize(rowDimension, std::vector<double>(columnDimension));
 }
 
+Matrix::Matrix(double p_element):rowDimension(1), columnDimension(1)
+{
+   elements.resize(rowDimension, std::vector<double>(columnDimension));
+   elements[0][0] = p_element;
+}
+
 Matrix::Matrix(const Matrix& p_other): rowDimension(p_other.rowDimension), columnDimension(p_other.columnDimension), elements(p_other.elements)
 {
 }
@@ -30,40 +36,49 @@ const Matrix Matrix::operator+(const Matrix& p_matrix) const
 {
    checkDimensions(p_matrix, "Unable to add matrices. ");
 
-   Matrix result = *this;
+   Matrix l_result = *this;
 
-   for (int i = 0; i < rowDimension; i++)
-      for (int j = 0; j < columnDimension; j++)
-         result.elements[i][j] += p_matrix.elements[i][j];
+   for (int i = 0; i < rowDimension; ++i)
+      for (int j = 0; j < columnDimension; ++j)
+         l_result.elements[i][j] += p_matrix.elements[i][j];
 
-   return result;
+   return l_result;
 }
 
 const Matrix Matrix::operator-(const Matrix& p_matrix) const
 {
    checkDimensions(p_matrix, "Unable to subtraction matrices. ");
 
-   Matrix result = *this;
+   Matrix l_result = *this;
 
-   for (int i = 0; i < rowDimension; i++)
-      for (int j = 0; j < columnDimension; j++)
-         result.elements[i][j] -= p_matrix.elements[i][j];
+   for (int i = 0; i < rowDimension; ++i)
+      for (int j = 0; j < columnDimension; ++j)
+         l_result.elements[i][j] -= p_matrix.elements[i][j];
 
-   return result;
+   return l_result;
 }
 
 const Matrix Matrix::operator*(const Matrix& p_matrix) const
 {
    if (this->columnDimension != p_matrix.rowDimension)
    {
-       std::string message = "Unable to multiply matrices. ";
-       message += getDimensionsMatrices(p_matrix);
+       std::string l_message = "Unable to multiply matrices. ";
+       l_message += getDimensionsMatrices(p_matrix);
 
-       throw MatrixDimensionException(message);
+       throw MatrixDimensionException(l_message);
    }
-   Matrix result = *this;
+   IAlgorithmMultiplication *multiplication = new StrassenAlgorithm();
+   Matrix l_result = *this;
+   Matrix l_matrix = *&p_matrix;
 
-   return result;
+   l_result = multiplication->multiply(l_result, l_matrix);
+
+   return l_result;
+}
+
+double Matrix::getElement(const int p_firtsIndex, const int p_secondIndex)
+{
+   return elements[p_firtsIndex][p_secondIndex];
 }
 
 const std::string Matrix::getDimensionsMatrices(const Matrix& p_matrixB) const
@@ -82,9 +97,9 @@ void Matrix::checkDimensions(const Matrix& p_matrix, const std::string& p_messag
    if (columnDimension != p_matrix.columnDimension
        || rowDimension != p_matrix.rowDimension)
    {
-      std::string message = p_messagePrefix;
-      message += getDimensionsMatrices(p_matrix);
+      std::string l_message = p_messagePrefix;
+      l_message += getDimensionsMatrices(p_matrix);
 
-      throw MatrixDimensionException(message);
+      throw MatrixDimensionException(l_message);
    }
 }

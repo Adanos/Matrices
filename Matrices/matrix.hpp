@@ -2,6 +2,7 @@
 #define MATRIX_HPP
 #include <vector>
 #include <matrixDimensionException.hpp>
+#include <StrassenAlgorithm.hpp>
 
 class Matrix
 {
@@ -14,6 +15,7 @@ private:
 
 public:
    Matrix() {}
+   Matrix(double p_element);
    Matrix(int p_rowDimension, int p_columnDimension);
    Matrix(const Matrix& p_other);
    Matrix& operator=(const Matrix& p_other);
@@ -25,6 +27,7 @@ public:
    const int getRowDimension() const { return rowDimension; }
    const int getColumnDimension() const { return columnDimension; }
    const std::string getDimensionsMatrices(const Matrix& p_matrixB) const;
+   double getElement(const int p_firtsIndex, const int p_secondIndex);
 };
 
 #endif // MATRIX_HPP

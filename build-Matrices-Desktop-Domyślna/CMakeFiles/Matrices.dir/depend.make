@@ -16,6 +16,8 @@ CMakeFiles/Matrices.dir/main.cpp.o: /home/grzegorz/Projekty/Matrices/Matrices/Ex
 CMakeFiles/Matrices.dir/main.cpp.o: /home/grzegorz/Projekty/Matrices/Matrices/main.cpp
 CMakeFiles/Matrices.dir/main.cpp.o: /home/grzegorz/Projekty/Matrices/Matrices/matrix.hpp
 
+CMakeFiles/Matrices.dir/matrix.cpp.o: /home/grzegorz/Projekty/Matrices/Matrices/AlgorithmMultiplication/IAlgorithmMultiplication.hpp
+CMakeFiles/Matrices.dir/matrix.cpp.o: /home/grzegorz/Projekty/Matrices/Matrices/AlgorithmMultiplication/StrassenAlgorithm.hpp
 CMakeFiles/Matrices.dir/matrix.cpp.o: /home/grzegorz/Projekty/Matrices/Matrices/Exception/matrixDimensionException.hpp
 CMakeFiles/Matrices.dir/matrix.cpp.o: /home/grzegorz/Projekty/Matrices/Matrices/matrix.cpp
 CMakeFiles/Matrices.dir/matrix.cpp.o: /home/grzegorz/Projekty/Matrices/Matrices/matrix.hpp
