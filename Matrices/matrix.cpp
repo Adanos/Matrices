@@ -11,14 +11,14 @@ Matrix::Matrix(const Matrix& p_other): rowDimension(p_other.rowDimension), colum
 
 Matrix& Matrix::operator=(const Matrix& p_other)
 {
-    if (this != &p_other)
-    {
-        rowDimension = p_other.rowDimension;
-        columnDimension = p_other.columnDimension;
-        elements = p_other.elements;
-    }
+   if (this != &p_other)
+   {
+      rowDimension = p_other.rowDimension;
+      columnDimension = p_other.columnDimension;
+      elements = p_other.elements;
+   }
 
-    return *this;
+   return *this;
 }
 
 void Matrix::addElements(std::vector<std::vector<double> >&  p_elements)
@@ -28,6 +28,8 @@ void Matrix::addElements(std::vector<std::vector<double> >&  p_elements)
 
 const Matrix Matrix::operator+(const Matrix& p_matrix) const
 {
+   checkDimensions(p_matrix, "Unable to add matrices. ");
+
    Matrix result = *this;
 
    for (int i = 0; i < rowDimension; i++)
@@ -39,6 +41,8 @@ const Matrix Matrix::operator+(const Matrix& p_matrix) const
 
 const Matrix Matrix::operator-(const Matrix& p_matrix) const
 {
+   checkDimensions(p_matrix, "Unable to subtraction matrices. ");
+
    Matrix result = *this;
 
    for (int i = 0; i < rowDimension; i++)
@@ -52,9 +56,35 @@ const Matrix Matrix::operator*(const Matrix& p_matrix) const
 {
    if (this->columnDimension != p_matrix.rowDimension)
    {
-       return Matrix();
+       std::string message = "Unable to multiply matrices. ";
+       message += getDimensionsMatrices(p_matrix);
+
+       throw MatrixDimensionException(message);
    }
    Matrix result = *this;
 
    return result;
+}
+
+const std::string Matrix::getDimensionsMatrices(const Matrix& p_matrixB) const
+{
+   std::ostringstream l_oss;
+   l_oss << "First matrix has dimension "
+      << getRowDimension() << " x " << getColumnDimension()
+      << ". Second matrix has dimension "
+      << p_matrixB.getRowDimension() << " x " << p_matrixB.getColumnDimension();
+
+   return l_oss.str();
+}
+
+void Matrix::checkDimensions(const Matrix& p_matrix, const std::string& p_messagePrefix) const
+{
+   if (columnDimension != p_matrix.columnDimension
+       || rowDimension != p_matrix.rowDimension)
+   {
+      std::string message = p_messagePrefix;
+      message += getDimensionsMatrices(p_matrix);
+
+      throw MatrixDimensionException(message);
+   }
 }

@@ -1,6 +1,7 @@
 #ifndef MATRIX_HPP
 #define MATRIX_HPP
 #include <vector>
+#include <matrixDimensionException.hpp>
 
 class Matrix
 {
@@ -8,6 +9,8 @@ private:
    int rowDimension;
    int columnDimension;
    std::vector<std::vector<double> > elements;
+
+   void checkDimensions(const Matrix& p_matrix, const std::string& p_messagePrefix) const;
 
 public:
    Matrix() {}
@@ -19,6 +22,9 @@ public:
    const Matrix operator+(const Matrix& p_matrix) const;
    const Matrix operator-(const Matrix& p_matrix) const;
    const Matrix operator*(const Matrix& p_matrix) const;
+   const int getRowDimension() const { return rowDimension; }
+   const int getColumnDimension() const { return columnDimension; }
+   const std::string getDimensionsMatrices(const Matrix& p_matrixB) const;
 };
 
 #endif // MATRIX_HPP

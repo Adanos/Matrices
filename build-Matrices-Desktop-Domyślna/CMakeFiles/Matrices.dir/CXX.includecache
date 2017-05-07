@@ -18,6 +18,16 @@ StrassenAlgorithm.hpp
 IAlgorithmMultiplication.hpp
 /home/grzegorz/Projekty/Matrices/Matrices/AlgorithmMultiplication/IAlgorithmMultiplication.hpp
 
+/home/grzegorz/Projekty/Matrices/Matrices/Exception/matrixDimensionException.cpp
+matrixDimensionException.hpp
+/home/grzegorz/Projekty/Matrices/Matrices/Exception/matrixDimensionException.hpp
+
+/home/grzegorz/Projekty/Matrices/Matrices/Exception/matrixDimensionException.hpp
+iostream
+-
+sstream
+-
+
 /home/grzegorz/Projekty/Matrices/Matrices/main.cpp
 iostream
 -
@@ -34,5 +44,7 @@ matrix.hpp
 
 /home/grzegorz/Projekty/Matrices/Matrices/matrix.hpp
 vector
+-
+matrixDimensionException.hpp
 -
 

@@ -150,6 +150,33 @@ AlgorithmMultiplication/StrassenAlgorithm.cpp.s:
 	$(MAKE) -f CMakeFiles/Matrices.dir/build.make CMakeFiles/Matrices.dir/AlgorithmMultiplication/StrassenAlgorithm.cpp.s
 .PHONY : AlgorithmMultiplication/StrassenAlgorithm.cpp.s
 
+Exception/matrixDimensionException.o: Exception/matrixDimensionException.cpp.o
+
+.PHONY : Exception/matrixDimensionException.o
+
+# target to build an object file
+Exception/matrixDimensionException.cpp.o:
+	$(MAKE) -f CMakeFiles/Matrices.dir/build.make CMakeFiles/Matrices.dir/Exception/matrixDimensionException.cpp.o
+.PHONY : Exception/matrixDimensionException.cpp.o
+
+Exception/matrixDimensionException.i: Exception/matrixDimensionException.cpp.i
+
+.PHONY : Exception/matrixDimensionException.i
+
+# target to preprocess a source file
+Exception/matrixDimensionException.cpp.i:
+	$(MAKE) -f CMakeFiles/Matrices.dir/build.make CMakeFiles/Matrices.dir/Exception/matrixDimensionException.cpp.i
+.PHONY : Exception/matrixDimensionException.cpp.i
+
+Exception/matrixDimensionException.s: Exception/matrixDimensionException.cpp.s
+
+.PHONY : Exception/matrixDimensionException.s
+
+# target to generate assembly for a file
+Exception/matrixDimensionException.cpp.s:
+	$(MAKE) -f CMakeFiles/Matrices.dir/build.make CMakeFiles/Matrices.dir/Exception/matrixDimensionException.cpp.s
+.PHONY : Exception/matrixDimensionException.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -216,6 +243,9 @@ help:
 	@echo "... AlgorithmMultiplication/StrassenAlgorithm.o"
 	@echo "... AlgorithmMultiplication/StrassenAlgorithm.i"
 	@echo "... AlgorithmMultiplication/StrassenAlgorithm.s"
+	@echo "... Exception/matrixDimensionException.o"
+	@echo "... Exception/matrixDimensionException.i"
+	@echo "... Exception/matrixDimensionException.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
