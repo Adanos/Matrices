@@ -1,3 +1,0 @@
-/home/grzegorz/Projekty/Matrices/build-Matrices-Desktop-Domyślna/CMakeFiles/rebuild_cache.dir
-/home/grzegorz/Projekty/Matrices/build-Matrices-Desktop-Domyślna/CMakeFiles/edit_cache.dir
-/home/grzegorz/Projekty/Matrices/build-Matrices-Desktop-Domyślna/CMakeFiles/Matrices.dir
