@@ -81,6 +81,11 @@ double Matrix::getElement(const int p_firtsIndex, const int p_secondIndex)
    return elements[p_firtsIndex][p_secondIndex];
 }
 
+std::vector<std::vector<double> >& Matrix::getElements()
+{
+   return elements;
+}
+
 const std::string Matrix::getDimensionsMatrices(const Matrix& p_matrixB) const
 {
    std::ostringstream l_oss;

@@ -28,6 +28,7 @@ public:
    const int getColumnDimension() const { return columnDimension; }
    const std::string getDimensionsMatrices(const Matrix& p_matrixB) const;
    double getElement(const int p_firtsIndex, const int p_secondIndex);
+   std::vector<std::vector<double> >& getElements();
 };
 
 #endif // MATRIX_HPP
