@@ -9,9 +9,9 @@ int main()
 {
    StrassenAlgorithm s;
    std::vector<std::vector<double> > a, b;
-   Matrix A = Matrix(2, 3), B(2, 3), C;
+   Matrix A = Matrix(2, 3), B(3, 3), C;
    a.resize(2, std::vector<double>(3));
-   b.resize(2, std::vector<double>(3));
+   b.resize(3, std::vector<double>(3));
    a[0][0] = 3;
    a[0][1] = 2;
    //a[1][1] = 45;
@@ -34,7 +34,9 @@ int main()
    try
    {
       C = A * B;
-      std::cout << "mnożenie " << C.getElement(0, 0) << std::endl;
+      for (int i = 0; i < C.getRowDimension(); ++i)
+         for (int j = 0; j < C.getRowDimension(); ++j)
+            std::cout << i << " " << j << " " << C.getElement(i, j) << std::endl;
    }
    catch(MatrixDimensionException& e)
    {

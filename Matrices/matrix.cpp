@@ -5,13 +5,13 @@ Matrix::Matrix(int p_rowDimension, int p_columnDimension) :rowDimension(p_rowDim
    elements.resize(rowDimension, std::vector<double>(columnDimension));
 }
 
-Matrix::Matrix(double p_element):rowDimension(1), columnDimension(1)
+Matrix::Matrix(double p_element) : rowDimension(1), columnDimension(1)
 {
    elements.resize(rowDimension, std::vector<double>(columnDimension));
    elements[0][0] = p_element;
 }
 
-Matrix::Matrix(const Matrix& p_other): rowDimension(p_other.rowDimension), columnDimension(p_other.columnDimension), elements(p_other.elements)
+Matrix::Matrix(const Matrix& p_other) : rowDimension(p_other.rowDimension), columnDimension(p_other.columnDimension), elements(p_other.elements)
 {
 }
 
@@ -29,6 +29,8 @@ Matrix& Matrix::operator=(const Matrix& p_other)
 
 void Matrix::addElements(std::vector<std::vector<double> >&  p_elements)
 {
+   rowDimension = p_elements.size();
+   columnDimension = p_elements[0].size();
    elements = p_elements;
 }
 
@@ -62,10 +64,10 @@ const Matrix Matrix::operator*(const Matrix& p_matrix) const
 {
    if (this->columnDimension != p_matrix.rowDimension)
    {
-       std::string l_message = "Unable to multiply matrices. ";
-       l_message += getDimensionsMatrices(p_matrix);
+      std::string l_message = "Unable to multiply matrices. ";
+      l_message += getDimensionsMatrices(p_matrix);
 
-       throw MatrixDimensionException(l_message);
+      throw MatrixDimensionException(l_message);
    }
    IAlgorithmMultiplication *multiplication = new StrassenAlgorithm();
    Matrix l_result = *this;
@@ -100,7 +102,7 @@ const std::string Matrix::getDimensionsMatrices(const Matrix& p_matrixB) const
 void Matrix::checkDimensions(const Matrix& p_matrix, const std::string& p_messagePrefix) const
 {
    if (columnDimension != p_matrix.columnDimension
-       || rowDimension != p_matrix.rowDimension)
+      || rowDimension != p_matrix.rowDimension)
    {
       std::string l_message = p_messagePrefix;
       l_message += getDimensionsMatrices(p_matrix);
