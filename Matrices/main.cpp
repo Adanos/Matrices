@@ -1,49 +1,114 @@
 #include <iostream>
 #include <vector>
 #include "matrix.hpp"
-#include <StrassenAlgorithm.hpp>
 
-using namespace std;
+void checkInputData()
+{
+   if (std::cin.fail())
+   {
+      throw std::invalid_argument("Invalid data provider. Program is terminated.");
+   }
+}
+
+void printMatrix(Matrix& matrix)
+{
+   std::cout << "Result" << std::endl;
+
+   for (int i = 0; i < matrix.getRowDimension(); ++i)
+   {
+      for (int j = 0; j < matrix.getColumnDimension(); ++j)
+         std::cout << matrix.getElement(i, j) << " ";
+
+      std::cout << "\n";
+   }
+}
+
+Matrix loadData(std::string p_nameMatrix)
+{
+   int rowDimension, columnDimension;
+   std::vector<std::vector<double> > elements;
+   std::cout << "Enter dimensions of " << p_nameMatrix << " matrix " <<
+      "(first row then column, dimensions must be greater than 1 and integer)." << "\n";
+   std::cin >> rowDimension >> columnDimension;
+
+   checkInputData();
+   std::cout << "rowDimension " << rowDimension << "\n";
+   if (rowDimension < 1 || columnDimension < 1)
+      throw std::invalid_argument("Dimension must be greater than 0. Program is terminated.");
+
+   Matrix matrix(rowDimension, columnDimension);
+   elements.resize(rowDimension, std::vector<double>(columnDimension));
+   std::cout << "Enter elements of " << p_nameMatrix << " matrix row by row." << "\n";
+   for (int i = 0; i < rowDimension; ++i)
+      for (int j = 0; j < columnDimension; ++j)
+         std::cin >> elements[i][j];
+
+   checkInputData();
+
+   matrix.addElements(elements);
+
+   return matrix;
+}
 
 int main()
 {
-   StrassenAlgorithm s;
-   std::vector<std::vector<double> > a, b;
-   Matrix A = Matrix(2, 3), B(3, 3), C;
-   a.resize(2, std::vector<double>(3));
-   b.resize(3, std::vector<double>(3));
-   a[0][0] = 3;
-   a[0][1] = 2;
-   //a[1][1] = 45;
-   b[0][0] = 3;
-   b[0][1] = 2;
-   //b[1][1] = 45;
-   A.addElements(a);
-   B.addElements(b);
-
-   std::cout << A.getElement(0,1) << std::endl;
    try
    {
-      C = A + B;
+      Matrix firstMatrix = loadData("first");
+      Matrix secondMatrix = loadData("second");
+      Matrix resultMatrix;
+
+      printMatrix(firstMatrix);
+      printMatrix(secondMatrix);
+
+      try
+      {
+         std::cout << "Adding matrices" << "\n";
+         resultMatrix = firstMatrix + secondMatrix;
+         printMatrix(resultMatrix);
+
+      }
+      catch(MatrixDimensionException& e)
+      {
+          std::cerr << "exception caught: " << e.what() << '\n';
+      }
+
+      try
+      {
+         std::cout << "Subtracting matrices" << "\n";
+         resultMatrix = firstMatrix - secondMatrix;
+         printMatrix(resultMatrix);
+      }
+      catch(MatrixDimensionException& e)
+      {
+          std::cerr << "exception caught: " << e.what() << '\n';
+      }
+
+      try
+      {
+         std::cout << "Multiplying matrices" << "\n";
+         resultMatrix = firstMatrix * secondMatrix;
+         printMatrix(resultMatrix);
+      }
+      catch(MatrixDimensionException& e)
+      {
+          std::cerr << "exception caught: " << e.what() << '\n';
+      }
    }
-   catch(MatrixDimensionException& e)
+   catch (std::invalid_argument& e)
    {
-       std::cerr << "exception caught: " << e.what() << '\n';
+      std::cerr << "exception caught: " << e.what() << '\n';
+   }
+   catch (std::length_error& e)
+   {
+      std::cerr << "exception caught: " << e.what() << '\n';
+   }
+   catch (std::bad_alloc& e)
+   {
+      std::cerr << "exception caught: " << e.what() << '\n';
    }
 
-   try
-   {
-      C = A * B;
-      for (int i = 0; i < C.getRowDimension(); ++i)
-         for (int j = 0; j < C.getRowDimension(); ++j)
-            std::cout << i << " " << j << " " << C.getElement(i, j) << std::endl;
-   }
-   catch(MatrixDimensionException& e)
-   {
-       std::cerr << "exception caught: " << e.what() << '\n';
-   }
-   //A.addElements(a);
-   //B.addElements(b);
+   std::cout << std::endl;
 
    return 0;
 }
