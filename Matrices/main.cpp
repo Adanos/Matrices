@@ -66,7 +66,6 @@ int main()
          std::cout << "Adding matrices" << "\n";
          resultMatrix = firstMatrix + secondMatrix;
          printMatrix(resultMatrix);
-
       }
       catch(MatrixDimensionException& e)
       {

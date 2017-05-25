@@ -17,12 +17,20 @@ Matrix::Matrix(const Matrix& p_other) : rowDimension(p_other.rowDimension), colu
 
 Matrix& Matrix::operator=(const Matrix& p_other)
 {
-   if (this != &p_other)
-   {
-      rowDimension = p_other.rowDimension;
-      columnDimension = p_other.columnDimension;
-      elements = p_other.elements;
-   }
+   Matrix temp(p_other);
+   swap(*this, temp);
+
+   return *this;
+}
+
+Matrix::Matrix(Matrix&& p_other) :Matrix()
+{
+   swap(*this, p_other);
+}
+
+Matrix& Matrix::operator=(Matrix&& p_other)
+{
+   swap(*this, p_other);
 
    return *this;
 }
